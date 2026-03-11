@@ -28,6 +28,7 @@
             margin-bottom: 10px;
             background: linear-gradient(135deg, #60a5fa, #a78bfa);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         
@@ -39,8 +40,8 @@
         
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
             margin-bottom: 30px;
         }
         
@@ -49,12 +50,6 @@
             border-radius: 12px;
             padding: 20px;
             border: 1px solid #334155;
-            transition: transform 0.2s;
-        }
-        
-        .stat-card:hover {
-            transform: translateY(-2px);
-            border-color: #60a5fa;
         }
         
         .stat-label {
@@ -103,11 +98,6 @@
             font-size: 0.9rem;
         }
         
-        select:focus, input:focus {
-            outline: none;
-            border-color: #60a5fa;
-        }
-        
         button {
             background: #3b82f6;
             color: white;
@@ -116,11 +106,6 @@
             border-radius: 6px;
             cursor: pointer;
             font-size: 0.9rem;
-            transition: background 0.2s;
-        }
-        
-        button:hover {
-            background: #2563eb;
         }
         
         .refresh-btn {
@@ -128,16 +113,15 @@
             margin-left: auto;
         }
         
-        .refresh-btn:hover {
-            background: #059669;
-        }
-        
+        /* КОМПАКТНАЯ ТАБЛИЦА БЕЗ СКРОЛЛА */
         table {
             width: 100%;
+            border-collapse: collapse;
             background: #1e293b;
             border-radius: 12px;
             overflow: hidden;
             border: 1px solid #334155;
+            table-layout: fixed;
         }
         
         th {
@@ -147,19 +131,35 @@
             font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            padding: 15px;
+            padding: 12px 8px;
             text-align: left;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
         
         td {
-            padding: 15px;
+            padding: 12px 8px;
             border-bottom: 1px solid #334155;
             color: #e2e8f0;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
         
         tr:hover td {
             background: #2d3b4f;
         }
+        
+        /* Ширина колонок в процентах */
+        th:nth-child(1), td:nth-child(1) { width: 15%; } /* Время */
+        th:nth-child(2), td:nth-child(2) { width: 10%; } /* IP */
+        th:nth-child(3), td:nth-child(3) { width: 25%; } /* Домен */
+        th:nth-child(4), td:nth-child(4) { width: 8%; }  /* Серьезность */
+        th:nth-child(5), td:nth-child(5) { width: 10%; } /* Причина */
+        th:nth-child(6), td:nth-child(6) { width: 22%; } /* Детали */
+        th:nth-child(7), td:nth-child(7) { width: 10%; } /* Действие */
         
         .severity-badge {
             display: inline-block;
@@ -168,6 +168,9 @@
             font-size: 0.8rem;
             font-weight: 600;
             text-transform: uppercase;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
         }
         
         .severity-low {
@@ -196,16 +199,15 @@
         
         .timestamp {
             color: #94a3b8;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
         
         .details {
-            max-width: 200px;
+            color: #94a3b8;
+            font-size: 0.85rem;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
-            color: #94a3b8;
-            font-size: 0.9rem;
         }
         
         .pagination {
@@ -226,17 +228,14 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: all 0.2s;
         }
         
         .page-btn:hover {
             background: #3b82f6;
-            border-color: #3b82f6;
         }
         
         .page-btn.active {
             background: #3b82f6;
-            border-color: #3b82f6;
         }
         
         .loading {

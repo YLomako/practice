@@ -11,7 +11,7 @@ func main() {
 	fmt.Println("=========================================")
 
 	// Подозрительный домен (высокая энтропия)
-	evilDomain := "x9k2m4n7q8r3t5v1w2x6y8z0a1b2c3d4.evil.com"
+	evilDomain := "x9k2m4n7q8r3t5v1w2x2342342342342342346y8z0a1b2c3d4.evil.com"
 	normalDomain := "google.com"
 
 	// Тест 1: Нормальный домен на порт 5354

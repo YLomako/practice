@@ -32,7 +32,7 @@ func (h *PacketHandler) startUDPListener(port int) {
 	log.Println("🔴🔴🔴 UDP ЛИСТЕНЕР ЗАПУЩЕН 🔴🔴🔴")
 
 	addr := net.UDPAddr{
-		Port: port,
+		Port: 0,
 		IP:   net.ParseIP("::"),
 	}
 
